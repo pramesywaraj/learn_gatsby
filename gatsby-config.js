@@ -5,9 +5,14 @@ module.exports = {
     author: `Pramesywara Jembar Panalar`,
   },
   plugins: [
-    'gatsby-plugin-sass'
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'src',
+        path: `${__dirname}/src/`
+      }
+    },
+    'gatsby-transformer-remark'
   ],
 }
