@@ -8,7 +8,7 @@ export default function ContactPage() {
             <h1>Contact</h1>
             <p>Email: jembarpanalar21@gmail.com</p>
             <p>
-                Linked-In: <a href={'https://www.linkedin.com/in/pramesywara-j/'} target="_blank">
+                Linked-In: <a href='https://www.linkedin.com/in/pramesywara-j/' target="_blank" rel="nooponer noreferrer">
                     pramesywaraj
                 </a>
             </p>

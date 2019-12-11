@@ -1,23 +1,67 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql, useStaticQuery } from 'gatsby'
+
+import headerStyle from './styling/header.module.scss'
 
 export default function Header() {
+    const data = useStaticQuery(graphql`
+        query {
+            site {
+                siteMetadata {
+                    title
+                }
+            }
+        }
+    `)
+
+
     return (
-        <header>
-            <h1>Panalar's Site</h1>
+        <header className={headerStyle.header}>
+            <h1>
+                <Link 
+                    className={headerStyle.title} 
+                    to={'/'}
+                >
+                    {data.site.siteMetadata.title}
+                </Link>
+            </h1>
             <nav>
-                <ul>
+                <ul className={headerStyle.navList}>
                     <li>
-                        <Link to={'/'}>Home</Link>
+                        <Link 
+                            className={headerStyle.navListItem} 
+                            activeClassName={headerStyle.activeNavItem} 
+                            to={'/'}
+                        >
+                            Home
+                        </Link>
                     </li>
                     <li>
-                        <Link to={'/blogs'}>Blog</Link>
+                        <Link 
+                            className={headerStyle.navListItem} 
+                            activeClassName={headerStyle.activeNavItem} 
+                            to={'/blogs'}
+                        >
+                            Blogs
+                        </Link>
                     </li>
                     <li>
-                        <Link to={'/about'}>About</Link>
+                        <Link 
+                            className={headerStyle.navListItem} 
+                            activeClassName={headerStyle.activeNavItem} 
+                            to={'/about'}
+                        >
+                            About
+                        </Link>
                     </li>
                     <li>
-                        <Link to={'/contact/'}>Contact</Link>
+                        <Link 
+                            className={headerStyle.navListItem} 
+                            activeClassName={headerStyle.activeNavItem} 
+                            to={'/contact'}
+                        >
+                            Contact
+                        </Link>
                     </li>
                 </ul>
             </nav>
